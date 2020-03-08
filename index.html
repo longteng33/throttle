@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>防抖函数</title>
+    <style>
+        .container{
+            width: 140px;
+            height: 80px;
+            font-size: 0;
+            margin: 30px auto 0;
+        }
+        #result{
+            display:inline-block;
+            width:80px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            font-size: 30px;
+            font-weight: bolder;
+            vertical-align: bottom;
+            box-sizing: border-box;
+        }
+        .btn{
+            width: 60px;
+            height: 40px;
+            text-align: center;
+            line-height: 40px;
+            font-size: 40px;
+        }
+    </style>
+    <!-- <link rel="stylesheet" href= "CSS文件路径"> -->
+</head>
+    
+<body>
+    
+    <p>不停地点击加号，1秒之内只加一次</p>
+    <div class="container">
+        <input type="text" id="result" value="1">
+        <button class="btn add">+</button>
+    </div>
+    
+    
+    <script src="./throttle.js"></script>
+    <script>
+        
+        var oResult=document.getElementById("result");
+
+        function fa(){
+            var n=Number(oResult.value)+1
+            oResult.value=n
+        }
+      
+        document.getElementsByClassName("btn")[0].onclick=throttle(fa,1000);
+        
+        
+    </script>
+</body>
+</html>
